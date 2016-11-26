@@ -86,7 +86,7 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
-	                _react2.default.createElement(_Navbar.Navbar, { name: "Mahessh", age: 26, user: user }),
+	                _react2.default.createElement(_Navbar.Navbar, { name: "Mahessh", age: 26 }),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "col-lg-12" },
@@ -22129,20 +22129,21 @@
 	                            )
 	                        ),
 	                        _react2.default.createElement(
-	                            "p",
-	                            null,
-	                            "Your name is ",
-	                            this.props.name
-	                        ),
-	                        _react2.default.createElement(
-	                            "p",
-	                            null,
-	                            "Your age is ",
-	                            this.props.age
-	                        ),
-	                        _react2.default.createElement(
 	                            "div",
 	                            { className: "well" },
+	                            _react2.default.createElement("br", null),
+	                            _react2.default.createElement(
+	                                "p",
+	                                null,
+	                                "Your name is ",
+	                                this.props.name
+	                            ),
+	                            _react2.default.createElement(
+	                                "p",
+	                                null,
+	                                "Your age is ",
+	                                this.props.age
+	                            ),
 	                            _react2.default.createElement(
 	                                "h2",
 	                                null,
@@ -22162,7 +22163,7 @@
 	                            _react2.default.createElement(
 	                                "ul",
 	                                null,
-	                                this.props.user.map(function (color, i) {
+	                                this.props.user.color.map(function (color, i) {
 	                                    return _react2.default.createElement(
 	                                        "li",
 	                                        { key: i },
@@ -22179,6 +22180,15 @@
 	
 	    return Navbar;
 	}(_react2.default.Component);
+	
+	//Defining proptype
+	
+	
+	Navbar.propTypes = {
+	    name: _react2.default.PropTypes.string,
+	    age: _react2.default.PropTypes.number,
+	    user: _react2.default.PropTypes.object
+	};
 
 /***/ }
 /******/ ]);
