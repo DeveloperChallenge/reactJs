@@ -1,5 +1,17 @@
 import React from "react";
 export class Navbar extends React.Component{
+    constructor(props){
+        super();
+        this.state= {
+            age: props.initialAge,
+            status: 0
+        }
+    }
+    increaseMe(){
+        this.setState({
+            age: this.state.age + 3
+        })
+    }
     render() {
         return (
             <nav className="navbar navbar-default">
@@ -15,8 +27,6 @@ export class Navbar extends React.Component{
 
                         <div className="well">
                             <br/>
-                            <p>Your name is {this.props.name}</p>
-                            <p>Your age is {this.props.age}</p>
                             <h2>User Details are below: -</h2>
                             <p>name is {this.props.user.name}</p>
                             <h2>Your favaroite color are</h2>
@@ -24,6 +34,9 @@ export class Navbar extends React.Component{
                                 {this.props.user.color.map((color,i)=> <li key={i}>{color}</li>)}
                             </ul>
                             {this.props.children}
+                            <h2>Your age is {this.state.age}</h2>
+                            <p>Testing for updating the state of the DOM</p>
+                            <button className="btn btn-primary" onClick={()=>this.increaseMe()}>Increase Me</button>
                         </div>
                     </div>
                 </div>
@@ -35,7 +48,7 @@ export class Navbar extends React.Component{
 //Defining proptype
 Navbar.propTypes = {
     name: React.PropTypes.string,
-    age: React.PropTypes.number,
+    initialAge: React.PropTypes.number,
     user: React.PropTypes.object,
     children: React.PropTypes.element.isRequired
 };

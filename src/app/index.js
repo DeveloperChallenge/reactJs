@@ -10,7 +10,7 @@ class App extends React.Component{
         };
         return (
             <div>
-                <Navbar name={"Mahessh"} age={26} user={user}>
+                <Navbar name={"Mahessh"} initialAge={26} user={user}>
                     <h4 className="text-danger"><i>This is text pased to navbar, and this can access by react using children property</i></h4>
                 </Navbar>
                 <div className="col-lg-12">

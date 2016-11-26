@@ -86,7 +86,19 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
-	                _react2.default.createElement(_Navbar.Navbar, { name: "Mahessh", age: 26 }),
+	                _react2.default.createElement(
+	                    _Navbar.Navbar,
+	                    { name: "Mahessh", initialAge: 26, user: user },
+	                    _react2.default.createElement(
+	                        "h4",
+	                        { className: "text-danger" },
+	                        _react2.default.createElement(
+	                            "i",
+	                            null,
+	                            "This is text pased to navbar, and this can access by react using children property"
+	                        )
+	                    )
+	                ),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "col-lg-12" },
@@ -22074,15 +22086,28 @@
 	var Navbar = exports.Navbar = function (_React$Component) {
 	    _inherits(Navbar, _React$Component);
 	
-	    function Navbar() {
+	    function Navbar(props) {
 	        _classCallCheck(this, Navbar);
 	
-	        return _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this));
+	
+	        _this.state = {
+	            age: props.initialAge
+	        };
+	
+	        return _this;
 	    }
 	
 	    _createClass(Navbar, [{
+	        key: "increaseMe",
+	        value: function increaseMe() {
+	            this.state.age + 3;
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
+	            var _this2 = this;
+	
 	            return _react2.default.createElement(
 	                "nav",
 	                { className: "navbar navbar-default" },
@@ -22135,12 +22160,6 @@
 	                            _react2.default.createElement(
 	                                "p",
 	                                null,
-	                                "Your name is ",
-	                                this.props.name
-	                            ),
-	                            _react2.default.createElement(
-	                                "p",
-	                                null,
 	                                "Your age is ",
 	                                this.props.age
 	                            ),
@@ -22170,6 +22189,25 @@
 	                                        color
 	                                    );
 	                                })
+	                            ),
+	                            this.props.children,
+	                            _react2.default.createElement(
+	                                "h2",
+	                                null,
+	                                "Your age is ",
+	                                this.age
+	                            ),
+	                            _react2.default.createElement(
+	                                "p",
+	                                null,
+	                                "Testing for updating the state of the DOM"
+	                            ),
+	                            _react2.default.createElement(
+	                                "button",
+	                                { className: "btn btn-primary", onClick: function onClick() {
+	                                        return _this2.increaseMe();
+	                                    } },
+	                                "Increase Me"
 	                            )
 	                        )
 	                    )
@@ -22186,8 +22224,9 @@
 	
 	Navbar.propTypes = {
 	    name: _react2.default.PropTypes.string,
-	    age: _react2.default.PropTypes.number,
-	    user: _react2.default.PropTypes.object
+	    initialAge: _react2.default.PropTypes.number,
+	    user: _react2.default.PropTypes.object,
+	    children: _react2.default.PropTypes.element.isRequired
 	};
 
 /***/ }
