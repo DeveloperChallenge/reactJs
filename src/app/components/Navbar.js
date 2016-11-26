@@ -12,6 +12,18 @@ export class Navbar extends React.Component{
                             <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
                             <li><a href="#">Link</a></li>
                         </ul>
+
+                        <div className="well">
+                            <br/>
+                            <p>Your name is {this.props.name}</p>
+                            <p>Your age is {this.props.age}</p>
+                            <h2>User Details are below: -</h2>
+                            <p>name is {this.props.user.name}</p>
+                            <h2>Your favaroite color are</h2>
+                            <ul>
+                                {this.props.user.color.map((color,i)=> <li key={i}>{color}</li>)}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </nav>

@@ -57,7 +57,7 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 32);
 	
-	var _Navbar = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/Navbar\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _Navbar = __webpack_require__(/*! ./components/Navbar */ 178);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -79,17 +79,17 @@
 	    _createClass(App, [{
 	        key: "render",
 	        value: function render() {
+	            var user = {
+	                name: "Arpan",
+	                color: ["Red", "green", "Orange", "Purple", "Yellow"]
+	            };
 	            return _react2.default.createElement(
 	                "div",
-	                { className: "container" },
-	                _react2.default.createElement(
-	                    _Navbar.Navbar,
-	                    null,
-	                    " "
-	                ),
+	                null,
+	                _react2.default.createElement(_Navbar.Navbar, { name: "Mahessh", age: 26, user: user }),
 	                _react2.default.createElement(
 	                    "div",
-	                    { className: "col-lg-12 well" },
+	                    { className: "col-lg-12" },
 	                    _react2.default.createElement(
 	                        "h1",
 	                        null,
@@ -22042,6 +22042,143 @@
 	
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+
+/***/ },
+/* 178 */
+/*!**************************************!*\
+  !*** ./src/app/components/Navbar.js ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Navbar = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Navbar = exports.Navbar = function (_React$Component) {
+	    _inherits(Navbar, _React$Component);
+	
+	    function Navbar() {
+	        _classCallCheck(this, Navbar);
+	
+	        return _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).apply(this, arguments));
+	    }
+	
+	    _createClass(Navbar, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "nav",
+	                { className: "navbar navbar-default" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "container-fluid" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "navbar-header" },
+	                        _react2.default.createElement(
+	                            "a",
+	                            { className: "navbar-brand", href: "#" },
+	                            "Brand"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1" },
+	                        _react2.default.createElement(
+	                            "ul",
+	                            { className: "nav navbar-nav" },
+	                            _react2.default.createElement(
+	                                "li",
+	                                { className: "active" },
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#" },
+	                                    "Link ",
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "sr-only" },
+	                                        "(current)"
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#" },
+	                                    "Link"
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            "Your name is ",
+	                            this.props.name
+	                        ),
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            "Your age is ",
+	                            this.props.age
+	                        ),
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "well" },
+	                            _react2.default.createElement(
+	                                "h2",
+	                                null,
+	                                "User Details are below: -"
+	                            ),
+	                            _react2.default.createElement(
+	                                "p",
+	                                null,
+	                                "name is ",
+	                                this.props.user.name
+	                            ),
+	                            _react2.default.createElement(
+	                                "h2",
+	                                null,
+	                                "Your favaroite color are"
+	                            ),
+	                            _react2.default.createElement(
+	                                "ul",
+	                                null,
+	                                this.props.user.map(function (color, i) {
+	                                    return _react2.default.createElement(
+	                                        "li",
+	                                        { key: i },
+	                                        color
+	                                    );
+	                                })
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Navbar;
+	}(_react2.default.Component);
 
 /***/ }
 /******/ ]);
