@@ -59,6 +59,8 @@
 	
 	var _Navbar = __webpack_require__(/*! ./components/Navbar */ 178);
 	
+	var _Home = __webpack_require__(/*! ./components/Home */ 179);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73,22 +75,33 @@
 	    function App() {
 	        _classCallCheck(this, App);
 	
-	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+	
+	        _this.state = {
+	            homeLink: 'Home'
+	        };
+	
+	        return _this;
 	    }
 	
 	    _createClass(App, [{
+	        key: "clickToChange",
+	        value: function clickToChange(newName) {
+	            this.setState({
+	                homeLink: newName
+	            });
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
-	            var user = {
-	                name: "Arpan",
-	                color: ["Red", "green", "Orange", "Purple", "Yellow"]
-	            };
+	            var _this2 = this;
+	
 	            return _react2.default.createElement(
 	                "div",
 	                null,
 	                _react2.default.createElement(
 	                    _Navbar.Navbar,
-	                    { name: "Mahessh", initialAge: 26, user: user },
+	                    { homeLink: this.state.homeLink },
 	                    _react2.default.createElement(
 	                        "h4",
 	                        { className: "text-danger" },
@@ -107,7 +120,10 @@
 	                        null,
 	                        "Hello !"
 	                    )
-	                )
+	                ),
+	                _react2.default.createElement(_Home.Home, { homeLink: this.state.homeLink, changeLink: function changeLink() {
+	                        return _this2.clickToChange();
+	                    } })
 	            );
 	        }
 	    }]);
@@ -22069,6 +22085,63 @@
 	});
 	exports.Navbar = undefined;
 	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Navbar = exports.Navbar = function Navbar(props) {
+	    return _react2.default.createElement(
+	        "nav",
+	        { className: "navbar navbar-default" },
+	        _react2.default.createElement(
+	            "div",
+	            { className: "container-fluid" },
+	            _react2.default.createElement(
+	                "div",
+	                { className: "navbar-header" },
+	                _react2.default.createElement(
+	                    "a",
+	                    { className: "navbar-brand", href: "#" },
+	                    "Brand"
+	                )
+	            ),
+	            _react2.default.createElement(
+	                "div",
+	                { className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1" },
+	                _react2.default.createElement(
+	                    "ul",
+	                    { className: "nav navbar-nav" },
+	                    _react2.default.createElement(
+	                        "li",
+	                        { className: "active" },
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "#" },
+	                            props.homeLink
+	                        )
+	                    )
+	                )
+	            )
+	        )
+	    );
+	};
+
+/***/ },
+/* 179 */
+/*!************************************!*\
+  !*** ./src/app/components/Home.js ***!
+  \************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Home = undefined;
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(/*! react */ 1);
@@ -22083,25 +22156,24 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Navbar = exports.Navbar = function (_React$Component) {
-	    _inherits(Navbar, _React$Component);
+	var Home = exports.Home = function (_React$Component) {
+	    _inherits(Home, _React$Component);
 	
-	    function Navbar(props) {
-	        _classCallCheck(this, Navbar);
+	    function Home(props) {
+	        _classCallCheck(this, Home);
 	
-	        var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this));
+	        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this));
 	
 	        _this.state = {
-	            age: props.initialAge
+	            homeLink: "Change the link"
 	        };
-	
 	        return _this;
 	    }
 	
-	    _createClass(Navbar, [{
-	        key: "increaseMe",
-	        value: function increaseMe() {
-	            this.state.age + 3;
+	    _createClass(Home, [{
+	        key: "onChangeLink",
+	        value: function onChangeLink() {
+	            this.props.changeLink(this.state.homeLink);
 	        }
 	    }, {
 	        key: "render",
@@ -22109,125 +22181,35 @@
 	            var _this2 = this;
 	
 	            return _react2.default.createElement(
-	                "nav",
-	                { className: "navbar navbar-default" },
+	                "div",
+	                { className: "col-lg-6 col-lg-offset-3 well text-center" },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "container-fluid" },
-	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "navbar-header" },
-	                        _react2.default.createElement(
-	                            "a",
-	                            { className: "navbar-brand", href: "#" },
-	                            "Brand"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1" },
-	                        _react2.default.createElement(
-	                            "ul",
-	                            { className: "nav navbar-nav" },
-	                            _react2.default.createElement(
-	                                "li",
-	                                { className: "active" },
-	                                _react2.default.createElement(
-	                                    "a",
-	                                    { href: "#" },
-	                                    "Link ",
-	                                    _react2.default.createElement(
-	                                        "span",
-	                                        { className: "sr-only" },
-	                                        "(current)"
-	                                    )
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                "li",
-	                                null,
-	                                _react2.default.createElement(
-	                                    "a",
-	                                    { href: "#" },
-	                                    "Link"
-	                                )
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "well" },
-	                            _react2.default.createElement("br", null),
-	                            _react2.default.createElement(
-	                                "p",
-	                                null,
-	                                "Your age is ",
-	                                this.props.age
-	                            ),
-	                            _react2.default.createElement(
-	                                "h2",
-	                                null,
-	                                "User Details are below: -"
-	                            ),
-	                            _react2.default.createElement(
-	                                "p",
-	                                null,
-	                                "name is ",
-	                                this.props.user.name
-	                            ),
-	                            _react2.default.createElement(
-	                                "h2",
-	                                null,
-	                                "Your favaroite color are"
-	                            ),
-	                            _react2.default.createElement(
-	                                "ul",
-	                                null,
-	                                this.props.user.color.map(function (color, i) {
-	                                    return _react2.default.createElement(
-	                                        "li",
-	                                        { key: i },
-	                                        color
-	                                    );
-	                                })
-	                            ),
-	                            this.props.children,
-	                            _react2.default.createElement(
-	                                "h2",
-	                                null,
-	                                "Your age is ",
-	                                this.age
-	                            ),
-	                            _react2.default.createElement(
-	                                "p",
-	                                null,
-	                                "Testing for updating the state of the DOM"
-	                            ),
-	                            _react2.default.createElement(
-	                                "button",
-	                                { className: "btn btn-primary", onClick: function onClick() {
-	                                        return _this2.increaseMe();
-	                                    } },
-	                                "Increase Me"
-	                            )
-	                        )
-	                    )
+	                    "h2",
+	                    null,
+	                    "Welcome to Home Section"
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "Link:  sdfds"
+	                ),
+	                _react2.default.createElement(
+	                    "button",
+	                    {
+	                        className: "btn btn-primary btn-lg",
+	                        onClick: function onClick() {
+	                            return _this2.props.changeLink();
+	                        } },
+	                    "Click me to change home link"
 	                )
 	            );
 	        }
 	    }]);
 	
-	    return Navbar;
+	    return Home;
 	}(_react2.default.Component);
 	
-	//Defining proptype
-	
-	
-	Navbar.propTypes = {
-	    name: _react2.default.PropTypes.string,
-	    initialAge: _react2.default.PropTypes.number,
-	    user: _react2.default.PropTypes.object,
-	    children: _react2.default.PropTypes.element.isRequired
-	};
+	;
 
 /***/ }
 /******/ ]);

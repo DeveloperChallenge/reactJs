@@ -11,7 +11,6 @@ export const Navbar = (props) =>{
                             <li className="active"><a href="#">{props.homeLink}</a></li>
                         </ul>
                     </div>
-                    <button className="btn btn-warning" onClick={props.message}>Click me to say hello</button>
                 </div>
             </nav>
         );
