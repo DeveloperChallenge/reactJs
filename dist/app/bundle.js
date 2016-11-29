@@ -94,8 +94,6 @@
 	    }, {
 	        key: "render",
 	        value: function render() {
-	            var _this2 = this;
-	
 	            return _react2.default.createElement(
 	                "div",
 	                null,
@@ -121,9 +119,7 @@
 	                        "Hello !"
 	                    )
 	                ),
-	                _react2.default.createElement(_Home.Home, { homeLink: this.state.homeLink, changeLink: function changeLink() {
-	                        return _this2.clickToChange();
-	                    } })
+	                _react2.default.createElement(_Home.Home, { changeLink: this.clickToChange.bind(this) })
 	            );
 	        }
 	    }]);
@@ -22165,7 +22161,7 @@
 	        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this));
 	
 	        _this.state = {
-	            homeLink: "Change the link"
+	            homeLink: 'Linke changed'
 	        };
 	        return _this;
 	    }
@@ -22191,14 +22187,15 @@
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    "Link:  sdfds"
+	                    "Link:  ",
+	                    this.props.homeLink
 	                ),
 	                _react2.default.createElement(
 	                    "button",
 	                    {
 	                        className: "btn btn-primary btn-lg",
 	                        onClick: function onClick() {
-	                            return _this2.props.changeLink();
+	                            return _this2.onChangeLink();
 	                        } },
 	                    "Click me to change home link"
 	                )
